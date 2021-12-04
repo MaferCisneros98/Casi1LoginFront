@@ -9,6 +9,10 @@ import { TokenService } from '../service/token.service';
 export class MenuComponent implements OnInit {
 
   isLogged = false;
+  iscomercializadora = this.tokenService.comercializadora();
+  isTaller = this.tokenService.taller();
+  isConcesionaria=this.tokenService.concesionaria();
+
 
   constructor(private tokenService: TokenService) { }
 

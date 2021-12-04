@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'lista', component: ListaProductoComponent, canActivate: [guard], data: { expectedRol: ['comercializadora'] } },
-  { path: 'detalle/:id', component: DetalleProductoComponent, canActivate: [guard], data: { expectedRol: ['ROLE_COMERCIALIZADORA'] } },
-  { path: 'nuevo', component: NuevoProductoComponent, canActivate: [guard], data: { expectedRol: ['ROLE_COMERCIALIZADORA'] } },
+  { path: 'detalle/:id', component: DetalleProductoComponent, canActivate: [guard], data: { expectedRol: ['concesionaria'] } },
+  { path: 'nuevo', component: NuevoProductoComponent, canActivate: [guard], data: { expectedRol: ['taller'] } },
   { path: 'editar/:id', component: EditarProductoComponent, canActivate: [guard], data: { expectedRol: ['ROLE_COMERCIALIZADORA'] } },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
