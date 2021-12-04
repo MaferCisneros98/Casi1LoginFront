@@ -12,6 +12,12 @@ export class TokenService {
   roles: Array<string> = [];
 
   constructor() { }
+  public isLogged(): boolean {
+    if (this.getToken()) {
+      return true;
+    }
+    return false;
+  }
 
   public setToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
@@ -44,6 +50,20 @@ export class TokenService {
       });
     }
     return this.roles;
+  }
+  public comercializadora(): boolean {
+    if (!this.isLogged()) {
+      return false;
+    }
+    const token = this.getToken();
+    const payload = token.split('.')[1];
+    const payloadDecoded = atob(payload);
+    const values = JSON.parse(payloadDecoded);
+    const roles = values.roles;
+    if (roles.indexOf('ROLE_COMERCIALIZADORA') < 0) {
+      return false;
+    }
+    return true;
   }
 
   public logOut(): void {

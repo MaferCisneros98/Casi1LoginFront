@@ -14,7 +14,7 @@ export class ProdGuardService implements CanActivate {
     private router: Router
   ) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+ /* canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const expectedRol = route.data.expectedRol;
     const roles = this.tokenService.getAuthorities();
     this.realRol = 'user';
@@ -24,6 +24,15 @@ export class ProdGuardService implements CanActivate {
       }
     });
     if (!this.tokenService.getToken() || expectedRol.indexOf(this.realRol) === -1) {
+      this.router.navigate(['/']);
+      return false;
+    }
+    return true;
+  }*/
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    const expectedRol = route.data.expectedRol;
+    this.realRol = this.tokenService.comercializadora() ? 'comercializadora' : 'taller';
+    if (!this.tokenService.isLogged() || expectedRol.indexOf(this.realRol) < 0) {
       this.router.navigate(['/']);
       return false;
     }
