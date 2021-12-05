@@ -8,6 +8,7 @@ import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './auth/login.component';
 import { RegistroComponent } from './auth/registro.component';
 import { ProdGuardService as guard } from './guards/prod-guard.service';
+import { VerificacionDocumentosComponent } from './comercializadora/verificacion-documentos/verificacion-documentos.component';
 
 
 
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'lista', component: ListaProductoComponent, canActivate: [guard], data: { expectedRol: ['comercializadora'] } },
   { path: 'detalle/:id', component: DetalleProductoComponent, canActivate: [guard], data: { expectedRol: ['concesionaria'] } },
-  { path: 'nuevo', component: NuevoProductoComponent, canActivate: [guard], data: { expectedRol: ['taller'] } },
+  { path: 'verificacion', component: VerificacionDocumentosComponent, canActivate: [guard], data: { expectedRol: ['comercializadora'] } },
   { path: 'editar/:id', component: EditarProductoComponent, canActivate: [guard], data: { expectedRol: ['ROLE_COMERCIALIZADORA'] } },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

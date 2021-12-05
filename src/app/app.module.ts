@@ -20,6 +20,10 @@ import { RegistroComponent } from './auth/registro.component';
 import { MenuComponent } from './menu/menu.component';
 import { IndexComponent } from './index/index.component';
 
+import { InformeRechazoComponent } from './comercializadora/informe-rechazo/informe-rechazo.component';
+import { VerificacionDocumentosComponent } from './comercializadora/verificacion-documentos/verificacion-documentos.component';
+
+
 
 
 @NgModule({
@@ -32,7 +36,9 @@ import { IndexComponent } from './index/index.component';
     LoginComponent,
     RegistroComponent,
     MenuComponent,
-    IndexComponent
+    IndexComponent,
+    VerificacionDocumentosComponent,
+    InformeRechazoComponent
   ],
   imports: [
     BrowserModule,
